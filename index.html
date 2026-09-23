@@ -1,100 +1,35 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PANEL NOXXA V3 - ULTIMATE</title>
+<html><head><title>NOXXA V4 - ULTIMATE PTERO</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Space Grotesk',sans-serif}
-body{background:#0a0e1a;color:#fff;overflow-x:hidden}
-:root{--neon:#7c3aed;--neon2:#3b82f6;--bg-card:rgba(255,255,255,0.05);--border:rgba(255,255,255,0.08)}
-#loginPage{position:fixed;inset:0;background:radial-gradient(120% 120% at 0% 0%, #1a1a3e 0%, #0a0e1a 50%, #000 100%);display:flex;align-items:center;justify-content:center;z-index:9999}
-.loginBox{background:rgba(15,19,35,0.9);border:1px solid var(--border);border-radius:24px;padding:40px;width:90%;max-width:400px;backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(124,58,237,0.2)}
-.loginBox h1{background:linear-gradient(135deg,#7c3aed,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:32px;font-weight:800;text-align:center}
-.loginBox p{text-align:center;color:#6b7280;margin:8px 0 24px;font-size:14px}
-.input{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:12px;padding:14px 16px;color:#fff;margin-bottom:14px;outline:none}
-.input:focus{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,0.2)}
-.btn{width:100%;background:linear-gradient(135deg,#7c3aed,#3b82f6);border:none;border-radius:12px;padding:14px;color:#fff;font-weight:700;cursor:pointer;font-size:15px}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(124,58,237,0.4)}
-#app{display:none;min-height:100vh}
-.sidebar{position:fixed;left:0;top:0;bottom:0;width:240px;background:rgba(10,14,26,0.95);border-right:1px solid var(--border);padding:24px 16px;z-index:100}
-.logo{font-size:24px;font-weight:800;line-height:1.1;background:linear-gradient(135deg,#7c3aed,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.logo span{font-size:12px;letter-spacing:2px;color:#7c3aed;-webkit-text-fill-color:#7c3aed}
-.menu{margin-top:32px;display:flex;flex-direction:column;gap:6px}
-.menuItem{padding:12px 14px;border-radius:12px;display:flex;gap:12px;align-items:center;cursor:pointer;color:#6b7280;font-size:14px}
-.menuItem.active,.menuItem:hover{background:rgba(124,58,237,0.15);color:#fff;border-left:3px solid #7c3aed}
-.main{margin-left:240px;padding:28px;min-height:100vh;background:radial-gradient(100% 100% at 30% 0%, rgba(124,58,237,0.12) 0%, transparent 60%)}
-.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:24px}
-.header h2{font-size:28px;font-weight:700}
-.card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:20px;backdrop-filter:blur(10px)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:24px}
-.stat h3{color:#6b7280;font-size:12px;letter-spacing:1px;margin-bottom:8px}
-.stat h1{font-size:36px;font-weight:800;margin-bottom:8px}
-.badge{display:inline-flex;background:rgba(16,185,129,0.15);color:#10b981;padding:4px 10px;border-radius:20px;font-size:12px;border:1px solid rgba(16,185,129,0.2)}
-.table{width:100%;border-collapse:collapse;margin-top:12px}
-.table th{color:#6b7280;font-size:11px;text-align:left;padding:12px;border-bottom:1px solid var(--border)}
-.table td{padding:14px 12px;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.04)}
-.status{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
-.online{background:#10b981;box-shadow:0 0 8px #10b981}
-.offline{background:#ef4444}
-.deployBtn{background:linear-gradient(135deg,#7c3aed,#3b82f6);border:none;padding:10px 18px;border-radius:12px;color:#fff;font-weight:600;cursor:pointer}
-.page{display:none}.page.active{display:block;animation:fade 0.3s}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:500;padding:20px}
-.modal.show{display:flex}
-.modalBox{background:#131a2f;border:1px solid var(--border);border-radius:20px;padding:24px;width:100%;max-width:420px}
-@media(max-width:768px){.sidebar{transform:translateX(-100%);transition:0.3s}.sidebar.open{transform:translateX(0)}.main{margin-left:0}}
-</style>
-</head>
-<body>
-<div id="loginPage">
-<div class="loginBox">
-<h1>PANEL NOXXA<br>V3</h1>
-<p>V3 • ULTIMATE • PRO</p>
-<input id="user" class="input" placeholder="Username (admin)">
-<input id="pass" class="input" type="password" placeholder="Password (noxxa123)">
-<button class="btn" onclick="login()">MASUK KE PANEL 🚀</button>
-<p style="margin-top:16px;font-size:11px;color:#4b5563">Demo: admin / noxxa123</p>
-</div>
-</div>
-<div id="app">
-<div class="sidebar">
-<div class="logo">PANEL<br>NOXXA<br>V3<span>ULTIMATE PRO</span></div>
-<div class="menu">
-<div class="menuItem active" data-page="dashboard">📊 Dashboard</div>
-<div class="menuItem" data-page="servers">🖥️ Servers</div>
-<div class="menuItem" data-page="users">👥 Users</div>
-<div class="menuItem" data-page="bots">📦 Bots</div>
-<div class="menuItem" data-page="settings">⚙️ Settings</div>
-<div class="menuItem" onclick="logout()" style="margin-top:20px;color:#ef4444">🚪 Logout</div>
-</div>
-</div>
-<div class="main">
-<div id="dashboard" class="page active">
-<div class="header"><div><h2>Dashboard</h2><p>Welcome back, Admin Noxxa • V3 Ultimate</p></div><button class="deployBtn" onclick="openDeploy()">+ Deploy New Bot</button></div>
-<div class="grid">
-<div class="card stat"><h3>ACTIVE BOTS</h3><h1>128</h1><span class="badge">↗ +12 this week</span></div>
-<div class="card stat"><h3>TOTAL USERS</h3><h1>2,341</h1><span class="badge">↗ +84 this month</span></div>
-<div class="card stat"><h3>SYSTEM UPTIME</h3><h1>99.98%</h1><span class="badge">✓ Running 42d</span></div>
-</div>
-<div class="card"><h3>🚀 PANEL NOXXA V3 AKTIF!</h3><p style="color:#9ca3af;font-size:13px;line-height:1.6;margin-top:8px">Server: <span class="status online"></span> Online | Railway: Active | Version: 3.0 ULTIMATE PRO<br><br>Fitur: Login System, Multi-Page, Deploy Modal, Full Interactive.</p></div>
-</div>
-<div id="servers" class="page"><div class="header"><div><h2>Servers</h2><p>Kelola semua server bot kamu</p></div></div><div class="card"><table class="table"><tr><th>SERVER NAME</th><th>STATUS</th><th>RAM</th><th>UPTIME</th></tr><tr><td>🔥 Noxxa-Main-Bot</td><td><span class="status online"></span> Online</td><td>512 MB</td><td>42d</td></tr><tr><td>⚡ Noxxa-Backup</td><td><span class="status online"></span> Online</td><td>256 MB</td><td>12d</td></tr><tr><td>🤖 Noxxa-AI</td><td><span class="status offline"></span> Offline</td><td>1 GB</td><td>0d</td></tr></table></div></div>
-<div id="users" class="page"><div class="header"><div><h2>Users</h2><p>2,341 Total Users</p></div></div><div class="card"><table class="table"><tr><th>USERNAME</th><th>PLAN</th><th>JOINED</th><th>BOTS</th></tr><tr><td>@noxxa_admin</td><td>PRO</td><td>Today</td><td>5</td></tr><tr><td>@sultan_bot</td><td>VIP</td><td>2 days ago</td><td>12</td></tr><tr><td>@user_2341</td><td>Free</td><td>1 week ago</td><td>1</td></tr></table></div></div>
-<div id="bots" class="page"><div class="header"><div><h2>Bots</h2><p>Semua bot yang ter-deploy</p></div><button class="deployBtn" onclick="openDeploy()">+ New Bot</button></div><div class="grid"><div class="card"><h4>🤖 WhatsApp Bot V1</h4><p style="color:#6b7280;font-size:12px;margin:8px 0">Online • Node.js</p><span class="badge">Running</span></div><div class="card"><h4>💬 Telegram Bot</h4><p style="color:#6b7280;font-size:12px;margin:8px 0">Online • Python</p><span class="badge">Running</span></div><div class="card"><h4>🔥 Spam Bot</h4><p style="color:#6b7280;font-size:12px;margin:8px 0">Offline • Node.js</p><span style="background:rgba(239,68,68,0.15);color:#ef4444" class="badge">Stopped</span></div></div></div>
-<div id="settings" class="page"><div class="header"><div><h2>Settings</h2><p>Konfigurasi Panel Noxxa</p></div></div><div class="card"><h4 style="margin-bottom:16px">Panel Config</h4><input class="input" value="noxxa-panel-production.up.railway.app" readonly><input class="input" value="Version 3.0 ULTIMATE PRO"><input class="input" value="Admin: Noxxa"><button class="btn" onclick="alert('Settings saved! V3')">Save Settings</button></div></div>
-</div>
-</div>
-<div id="deployModal" class="modal"><div class="modalBox"><h3 style="margin-bottom:16px">🚀 Deploy New Bot</h3><input id="botName" class="input" placeholder="Nama Bot"><select class="input"><option>WhatsApp Bot - Node.js</option><option>Telegram Bot - Python</option><option>Discord Bot</option></select><button class="btn" onclick="deployBot()">Deploy Sekarang!</button><button class="btn" onclick="closeDeploy()" style="background:transparent;border:1px solid rgba(255,255,255,0.1);margin-top:10px">Cancel</button></div></div>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{background:#0a0a12;color:#fff}
+.login-page{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 20%,#6d28d9 0%,#0a0a12 60%)}
+.card{background:#15151f;border:1px solid #2a2a3a;border-radius:20px;padding:30px;width:90%;max-width:400px}
+.btn{background:linear-gradient(90deg,#7c3aed,#4f46e5);border:none;color:#fff;padding:12px 20px;border-radius:12px;width:100%;font-weight:700;cursor:pointer}
+input,select{width:100%;background:#0a0a12;border:1px solid #2a2a3a;padding:12px;border-radius:10px;color:#fff;margin:8px 0}
+.dashboard{display:none;min-height:100vh}
+.sidebar{position:fixed;width:250px;height:100vh;background:#11111b;border-right:1px solid #2a2a3a;padding:20px}
+.main{margin-left:250px;padding:30px}
+.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:20px 0}
+.stat div{background:#15151f;border:1px solid #2a2a3a;border-radius:15px;padding:20px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:99}
+.modal.active{display:flex}
+.modal-box{background:#15151f;border:1px solid #3a3a5a;border-radius:20px;padding:25px;width:90%;max-width:500px}
+.server-list{display:grid;gap:12px;margin-top:20px}
+.server-item{background:#15151f;border:1px solid #2a2a3a;border-radius:12px;padding:15px;display:flex;justify-content:space-between;align-items:center}
+.badge{background:#10b98122;color:#10b981;padding:4px 10px;border-radius:20px;font-size:12px}
+</style></head><body>
+<div id="loginPage" class="login-page"><div class="card"><h2>PANEL NOXXA V4</h2><p style="opacity:.6;margin:10px 0 20px">ULTIMATE PTERO EDITION</p><input id="user" placeholder="Username" value="admin"><input id="pass" type="password" placeholder="Password" value="noxxa123"><button class="btn" onclick="login()">MASUK KE PANEL 🚀</button></div></div>
+<div id="dashboard" class="dashboard"><div class="sidebar"><h3 style="color:#7c3aed">PANEL NOXXA<br>V4 ULTIMATE</h3><br><div style="display:grid;gap:10px"><button onclick="showPage('dash')" class="btn">📊 Dashboard</button><button onclick="showPage('servers')" class="btn" style="background:#15151f">🖥️ Servers</button><button onclick="openCreate()" class="btn" style="background:#10b981">+ Create Panel</button><button onclick="logout()" style="background:transparent;border:none;color:#ef4444;margin-top:50px;cursor:pointer">🚪 Logout</button></div></div><div class="main"><div id="page-dash"><h1>Dashboard V4</h1><p style="opacity:.6">Welcome, Admin Noxxa - Pterodactyl Connected</p><div class="stat"><div><small>ACTIVE SERVERS</small><h2 id="countServer">0</h2></div><div><small>TOTAL USERS</small><h2>2,341</h2></div><div><small>NODE STATUS</small><h2 style="color:#10b981">● Online</h2></div></div><div id="serverList" class="server-list"></div></div><div id="page-servers" style="display:none"><h1>Servers</h1><div id="serverList2" class="server-list"></div></div></div></div>
+<div id="createModal" class="modal"><div class="modal-box"><h3>Create New Pterodactyl Panel</h3><br><input id="serverName" placeholder="Server Name (contoh: Bot Noxxa 1)"><select id="ram"><option value="1GB">1GB RAM - Basic</option><option value="2GB">2GB RAM - Standard</option><option value="4GB" selected>4GB RAM - Pro</option><option value="8GB">8GB RAM - Ultimate</option></select><input id="userEmail" placeholder="Client Email"><button class="btn" onclick="createServer()">🚀 CREATE PANEL NOW</button><button onclick="closeCreate()" style="background:transparent;border:1px solid #2a2a3a;color:#fff;padding:10px;border-radius:10px;width:100%;margin-top:10px;cursor:pointer">Cancel</button></div></div>
 <script>
-function login(){document.getElementById('loginPage').style.display='none';document.getElementById('app').style.display='block';localStorage.setItem('noxxa_login','true');}
-if(localStorage.getItem('noxxa_login')){document.getElementById('loginPage').style.display='none';document.getElementById('app').style.display='block';}
-function logout(){localStorage.removeItem('noxxa_login');location.reload();}
-document.querySelectorAll('.menuItem[data-page]').forEach(el=>{el.addEventListener('click',()=>{document.querySelectorAll('.menuItem').forEach(m=>m.classList.remove('active'));el.classList.add('active');document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(el.dataset.page).classList.add('active');})});
-function openDeploy(){document.getElementById('deployModal').classList.add('show')}
-function closeDeploy(){document.getElementById('deployModal').classList.remove('show')}
-function deployBot(){const name=document.getElementById('botName').value||'New Bot';closeDeploy();alert('🔥 '+name+' Berhasil di Deploy!');document.querySelector('[data-page="bots"]').click();}
-</script>
-</body>
-</html>
+let servers=JSON.parse(localStorage.getItem('noxxa_servers')||'[]');
+function login(){if(user.value==='admin'&&pass.value==='noxxa123'){loginPage.style.display='none';dashboard.style.display='block';render()}else alert('Salah!')}
+function logout(){dashboard.style.display='none';loginPage.style.display='flex'}
+function showPage(p){document.getElementById('page-dash').style.display=p==='dash'?'block':'none';document.getElementById('page-servers').style.display=p==='servers'?'block':'none'}
+function openCreate(){createModal.classList.add('active')}function closeCreate(){createModal.classList.remove('active')}
+function createServer(){let name=serverName.value||'Server-'+Date.now();let r=ram.value;let email=userEmail.value||'client@noxxa.id';let s={id:Date.now(),name,ram:r,email,status:'Online',created:new Date().toLocaleString()};servers.push(s);localStorage.setItem('noxxa_servers',JSON.stringify(servers));closeCreate();render();alert('✅ PANEL BERHASIL DIBUAT!\\n\\nName: '+name+'\\nRAM: '+r+'\\nEmail: '+email);serverName.value='';userEmail.value=''}
+function render(){countServer.textContent=servers.length;let html=servers.map(s=>`<div class="server-item"><div><b>${s.name}</b><br><small style="opacity:.6">${s.ram} | ${s.email}</small></div><div><span class="badge">● ${s.status}</span></div></div>`).join('')||'<p style="opacity:.5">Belum ada server, klik Create Panel</p>';serverList.innerHTML=html;serverList2.innerHTML=html}
+render();
+</script></body></html>
